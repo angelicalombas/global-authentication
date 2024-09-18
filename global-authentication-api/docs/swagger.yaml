@@ -1,0 +1,111 @@
+definitions:
+  models.User:
+    properties:
+      password:
+        minLength: 8
+        type: string
+      username:
+        maxLength: 20
+        minLength: 3
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  utils.ValidationErrorResponse:
+    properties:
+      code:
+        type: integer
+      errors:
+        additionalProperties: true
+        type: object
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /home:
+    get:
+      description: Welcome message for authenticated users
+      parameters:
+      - description: Bearer token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Welcome to the token-protected endpoint!
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Home endpoint
+      tags:
+      - home
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Login with username and password
+      parameters:
+      - description: Request of Creating User
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.ValidationErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/utils.ValidationErrorResponse'
+      summary: Log in as user and generate token
+      tags:
+      - users
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user with username and password
+      parameters:
+      - description: Request of Creating User
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: User created successfully message
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.ValidationErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/utils.ValidationErrorResponse'
+      summary: Register a new user
+      tags:
+      - users
+swagger: "2.0"

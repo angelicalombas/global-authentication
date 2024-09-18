@@ -82,8 +82,8 @@ func (c *UserController) Login(w http.ResponseWriter, r *http.Request) {
 
 	mu.Lock()
 	attempts, exists := loginAttempts[inputUser.Username]
-	if exists && attempts >= 3 {
-		utils.HandleError(w, "Too many login attempts. Please try again later.", http.StatusTooManyRequests, nil)
+	if exists && attempts >= 6 {
+		utils.HandleError(w, "Too many login attempts. Please try again after 5 minutes.", http.StatusTooManyRequests, nil)
 		mu.Unlock()
 		return
 	}

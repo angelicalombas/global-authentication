@@ -13,8 +13,9 @@ import (
 
 	_ "global-authentication/docs"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/swaggo/http-swagger"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 func main() {
@@ -25,11 +26,17 @@ func main() {
 	userService := services.NewUserService(userRepo)
 	userController := controllers.NewUserController(userService)
 
+	cors := handlers.CORS(
+		handlers.AllowedOrigins([]string{"*"}),
+		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}),
+		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
+	)
+
 	router := mux.NewRouter()
 	routes.InitializeRoutes(router, userController)
 
 	router.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
 	log.Println("Server running on port :8000")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	log.Fatal(http.ListenAndServe(":8000", cors(router)))
 }

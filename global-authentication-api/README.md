@@ -4,7 +4,7 @@ Esta API fornece funcionalidades básicas de autenticação, como registro de us
 
 ## Funcionalidades
 
-**Registro de Usuário:** Permite que novos usuários se registrem com um nome de usuário e senha.
+**Registro de Usuário:** Permite que novos usuários se registrem com um nome de usuário e senha. As senhas são gravadas no banco de dados de forma criptografada para maior segurança do usuário.
 
 **Login:** Permite que usuários existentes façam login e recebam um token JWT.
 

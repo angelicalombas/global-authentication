@@ -47,6 +47,8 @@ Go (1.23.1 ou superior)
 
 Docker e Docker Compose
 
+**!Ponto de atenção!**: se estiver utilizando **Windows**, o **Docker Desktop** deve estar rodando antes de iniciar as aplicações.
+
 ### Passo a Passo
 - Clone o repositório:
 

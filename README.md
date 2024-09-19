@@ -12,3 +12,5 @@ Este repositório contém a **API Global Authentication** e o **Front-end Global
 
  - Para instruções sobre a configuração e execução da API, consulte o README da [API Global Authentication](https://github.com/angelicalombas/global-authentication/blob/main/global-authentication-api/README.md)
  - Para instruções sobre a configuração e execução do front-end, consulte o README do  [Front-end Global Authentication Web](https://github.com/angelicalombas/global-authentication/blob/main/global-authentication-web/README.md)
+
+ - Também foi criado um vídeo no YouTube para facilitar a instalação: [Instalando projeto Global Authentication](https://www.youtube.com/watch?v=jGE8n2n5hTo)

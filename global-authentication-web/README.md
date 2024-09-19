@@ -11,19 +11,20 @@ Este é o front-end da API de Autenticação Global, construído com React e Typ
 ## Estrutura do Projeto
 
 ```bash
-/global-authetication-web
-|-- /src
-|   |-- /components
-|   |   |-- Login.tsx
-|   |   |-- Register.tsx
-|   |   |-- Home.tsx
-|   |-- App.tsx
-|   |-- index.tsx
-|   |-- styles.css
-|-- Dockerfile
-|-- package.json
-|-- package-lock.json
-|-- tsconfig.json
+.
+global-authetication-web
+├── src
+│   └── components
+│   │   └── Login.tsx
+│   │   └── Register.tsx
+│   │   └── Home.tsx
+│   └──App.tsx
+│   └── index.tsx
+│   └──styles.css
+├── Dockerfile
+├── package.json
+├── package-lock.json
+└── tsconfig.json
 ```
 
 ## Tecnologias Utilizadas
@@ -64,6 +65,7 @@ docker-compose up --build
 ```
 
 - Acesse a página inicial
+
 Acesse o aplicativo no navegador em http://localhost:3000.
 
 ## Uso
